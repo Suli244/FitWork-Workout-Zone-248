@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MotivationContainer extends StatefulWidget {
-  const MotivationContainer({super.key});
+  const MotivationContainer({super.key, this.titles, this.descs});
+  final List<String>? titles;
+  final List<String>? descs;
 
   @override
   State<MotivationContainer> createState() => _MotivationContainerState();
@@ -51,7 +53,9 @@ class _MotivationContainerState extends State<MotivationContainer> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      titles[randomIndex],
+                      widget.titles != null
+                          ? widget.titles![randomIndex]
+                          : titles[randomIndex],
                       style: TextStyle(
                         fontSize: 12.h,
                         fontWeight: FontWeight.w400,
@@ -74,7 +78,9 @@ class _MotivationContainerState extends State<MotivationContainer> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  descs[randomIndex],
+                  widget.descs != null
+                      ? widget.descs![randomIndex]
+                      : descs[randomIndex],
                   style: TextStyle(
                     fontSize: 15.h,
                     fontWeight: FontWeight.w500,
