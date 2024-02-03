@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:workout_zone_248/screen/pages/workouts/child_pages/training_main_detail_page.dart';
 import 'package:workout_zone_248/screen/pages/workouts/child_pages/workout_detail_page.dart';
 import 'package:workout_zone_248/screen/pages/workouts/state/cubit/workouts_cubit.dart';
@@ -226,9 +227,9 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 model.title,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 34,
+                                  fontSize: 34.h,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
