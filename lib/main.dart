@@ -1,38 +1,37 @@
+import 'package:apphud/apphud.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:workout_zone_248/screen/splash/splash_screen.dart';
+import 'package:workout_zone_248/utils/urls.dart';
 
-void main() {
-  return runApp(_ChartApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Apphud.start(apiKey: DocFFWorkoutZone.apphudApiKey);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(const MyApp());
 }
 
-class _ChartApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false),
-      home: _MyHomePage(),
+    return ScreenUtilInit(
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Workout Zone',
+        home: child,
+        theme: ThemeData.light().copyWith(
+          splashColor: Colors.transparent,
+          splashFactory: NoSplash.splashFactory,
+          highlightColor: Colors.transparent,
+        ),
+      ),
+      child: const SplashScreen(),
     );
   }
-}
-
-class _MyHomePage extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  _MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<_MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Container(child: SfSparkLineChart())));
-  }
-}
-
-class _SalesData {
-  _SalesData(this.year, this.sales);
-
-  final String year;
-  final double sales;
 }
