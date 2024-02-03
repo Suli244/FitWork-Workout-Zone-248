@@ -16,6 +16,8 @@ class AppImages {
   static const String filterIcon = 'assets/images/filter_icon.png';  
   static const String homeIcon = 'assets/images/home_icon.png';  
   static const String lockIcon = 'assets/images/lock_icon.png';  
+  static const String lockIconRoz = 'assets/images/lock_icon_roz.png';  
+  static const String lockIconWhite = 'assets/images/lock_icon_white.png';  
   static const String logo = 'assets/images/logo.png';  
   static const String moreIcon = 'assets/images/more_icon.png';  
   static const String nutritionIcon = 'assets/images/nutrition_icon.png';  
