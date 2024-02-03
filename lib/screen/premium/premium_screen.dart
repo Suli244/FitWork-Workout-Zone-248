@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/button_widget.dart';
 import 'package:workout_zone_248/screen/premium/widget/premium_item_widget.dart';
@@ -7,7 +8,6 @@ import 'package:workout_zone_248/screen/premium/widget/restore_widgets.dart';
 import 'package:workout_zone_248/screen/premium/widget/web_view_insightful_news.dart';
 import 'package:workout_zone_248/style/app_colors.dart';
 import 'package:workout_zone_248/utils/images/app_images.dart';
-import 'package:workout_zone_248/utils/premium/premium.dart';
 import 'package:workout_zone_248/utils/urls.dart';
 
 class PremiumScreen extends StatelessWidget {
@@ -60,7 +60,8 @@ class PremiumScreen extends StatelessWidget {
                     color: AppColorsWorkoutZone.color590085,
                     onPress: () async {
                       /////// Premium /////////
-                       await PremiumWebWorkoutZone.setPremium();
+                      final prefs = await SharedPreferences.getInstance();
+                      prefs.setBool('ISBUY', true);
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/button_widget.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/onboarding_item_widget.dart';
 import 'package:workout_zone_248/screen/premium/premium_screen.dart';
 import 'package:workout_zone_248/style/app_colors.dart';
 import 'package:workout_zone_248/utils/images/app_images.dart';
-import 'package:workout_zone_248/utils/premium/first_open.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -54,14 +55,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               color: AppColorsWorkoutZone.color590085,
               onPress: () async {
                 if (currantPage == 1) {
-                  Navigator.pushAndRemoveUntil(
+                  await Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const PremiumScreen(),
                     ),
-                    (protected) => false,
                   );
-                  await FirstOpenWorkoutZone.setFirstOpen();
+                  final prefs = await SharedPreferences.getInstance();
+                  prefs.setBool('isOpened', true);
+                  await Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomNavigatorScreen(),
+                    ),
+                    (pred) => false,
+                  );
                 } else {
                   controller.nextPage(
                     duration: const Duration(milliseconds: 300),

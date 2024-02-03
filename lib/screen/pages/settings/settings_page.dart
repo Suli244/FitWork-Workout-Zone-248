@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/pages/settings/widget/settings_item_widget.dart';
 import 'package:workout_zone_248/screen/premium/premium_screen.dart';
 import 'package:workout_zone_248/screen/premium/widget/web_view_insightful_news.dart';
 import 'package:workout_zone_248/style/app_colors.dart';
-import 'package:workout_zone_248/utils/premium/premium.dart';
 import 'package:workout_zone_248/utils/urls.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -24,7 +24,8 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   getPremium() async {
-    isPremiumNews = await PremiumWebWorkoutZone.getPremium();
+    final prefs = await SharedPreferences.getInstance();
+    isPremiumNews = prefs.getBool('ISBUY') ?? false;
     setState(() {});
   }
 
@@ -85,7 +86,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
             SettingsItemWidget(
-                titl: 'Restore purchases', onTaab: () {},),
+              titl: 'Restore purchases',
+              onTaab: () {},
+            ),
             SettingsItemWidget(
               titl: 'Privacy policy',
               onTaab: () {
@@ -99,7 +102,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 );
               },
-          
             ),
             SettingsItemWidget(
               titl: 'Terms of use',
@@ -114,9 +116,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 );
               },
-             
             ),
-            SettingsItemWidget(titl: 'Support', onTaab: () {},),
+            SettingsItemWidget(
+              titl: 'Support',
+              onTaab: () {},
+            ),
           ],
         ),
       ),
