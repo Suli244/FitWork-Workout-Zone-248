@@ -8,29 +8,15 @@ class Workouts {
   List<Trainings> trainings;
   String? description;
   String? time;
+  bool isSatypAluu;
   Workouts({
     required this.mainImage,
     required this.title,
     required this.trainings,
+    required this.isSatypAluu,
     this.description,
     this.time,
   });
-
-  Workouts copyWith({
-    String? mainImage,
-    String? title,
-    List<Trainings>? trainings,
-    String? description,
-    String? time,
-  }) {
-    return Workouts(
-      mainImage: mainImage ?? this.mainImage,
-      title: title ?? this.title,
-      trainings: trainings ?? this.trainings,
-      description: description ?? this.description,
-      time: time ?? this.time,
-    );
-  }
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
@@ -48,8 +34,9 @@ class Workouts {
     return result;
   }
 
-  factory Workouts.fromJson(Map<String, dynamic> map) {
+  factory Workouts.fromJson(Map<String, dynamic> map, bool isSatypAluu) {
     return Workouts(
+      isSatypAluu: isSatypAluu,
       mainImage: map['mainImage'] ?? '',
       title: map['title'] ?? '',
       trainings: List<Trainings>.from(
@@ -148,7 +135,6 @@ class Trainings {
 
   String toJson() => json.encode(toMap());
 
- 
   @override
   String toString() {
     return 'Trainings(calories: $calories, description: $description, level: $level, minutes: $minutes, title: $title, image: $image)';

@@ -21,7 +21,10 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
       log('data: result: $result ');
       final listModel = result.data
           .map<Workouts>(
-            (e) => Workouts.fromJson(e),
+            (e) => Workouts.fromJson(
+              e,
+              result.data.indexOf(e) < 2,
+            ),
           )
           .toList();
       workoutsSearch.addAll(listModel);

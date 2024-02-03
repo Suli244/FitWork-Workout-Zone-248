@@ -161,33 +161,37 @@ class TrainingWidget extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8),
                             child: Image.network(
-                              'https://i.ibb.co/C7Gs0LM/Rectangle-20.png',
+                              trains[index].image,
                               width: 72,
                               fit: BoxFit.cover,
                               height: 72,
                             ),
                           ),
                           const SizedBox(width: 8),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                telo.title,
-                                style: const TextStyle(
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff25140F),
+                          Flexible(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  telo.title,
+                                  style: const TextStyle(
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff25140F),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  maxLines: 2,
                                 ),
-                              ),
-                              Text(
-                                '${telo.minutes} min • ${telo.calories} kcal',
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff706B6A),
+                                Text(
+                                  '${telo.minutes} min • ${telo.calories} kcal',
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff706B6A),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           )
                         ],
                       ),

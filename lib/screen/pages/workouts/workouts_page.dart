@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/pages/workouts/child_pages/training_main_detail_page.dart';
 import 'package:workout_zone_248/screen/pages/workouts/child_pages/workout_detail_page.dart';
 import 'package:workout_zone_248/screen/pages/workouts/state/cubit/workouts_cubit.dart';
 import 'package:workout_zone_248/screen/pages/workouts/state/models/workouts_model.dart';
+import 'package:workout_zone_248/screen/premium/premium_screen.dart';
 import 'package:workout_zone_248/utils/images/app_images.dart';
 
 class WorkoutsPage extends StatefulWidget {
@@ -14,10 +17,18 @@ class WorkoutsPage extends StatefulWidget {
 }
 
 class _WorkoutsPageState extends State<WorkoutsPage> {
+  bool isSoonun = true;
   @override
   void initState() {
-    context.read<WorkoutsCubit>().getData();
     super.initState();
+    context.read<WorkoutsCubit>().getData();
+    getMoreBirSerse();
+  }
+
+  getMoreBirSerse() async {
+    final prefs = await SharedPreferences.getInstance();
+    isSoonun = prefs.getBool('ISBUY') ?? false;
+    setState(() {});
   }
 
   List gridList = [2, 4, 2, 2, 2, 3];
@@ -99,21 +110,65 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                         ),
                       ),
                       const SizedBox(height: 24),
+                      if (models.first.isSatypAluu && !isSoonun)
+                        Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: const Color(0xffF1F1F1),
+                              ),
+                              height: 72,
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(16),
+                              alignment: Alignment.center,
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    AppImages.lockIconRoz,
+                                    scale: 3,
+                                  ),
+                                  const SizedBox(width: 16),
+                                  const Expanded(
+                                    child: Text(
+                                      'Unlock PRO and get access to personalized workouts!',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      maxLines: 2,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 24),
+                          ],
+                        ),
                       AnimatedSwitcher(
                         duration: const Duration(milliseconds: 500),
                         child: searching
                             ? const SizedBox.shrink()
                             : GestureDetector(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          TrainingMainDetailPage(
-                                        models.first.trainings,
+                                  if (models.first.isSatypAluu && !isSoonun) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const PremiumScreen()),
+                                    );
+                                  } else {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            TrainingMainDetailPage(
+                                          models.first.trainings,
+                                        ),
                                       ),
-                                    ),
-                                  );
+                                    );
+                                  }
                                 },
                                 child: Container(
                                   height: 216,
@@ -164,13 +219,25 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                           ],
                                         ),
                                       ),
-                                      Text(
-                                        '${models.first.time} min',
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '${models.first.time} min',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                          if (models.first.isSatypAluu &&
+                                              !isSoonun)
+                                            Image.asset(
+                                              AppImages.lockIconRoz,
+                                              scale: 3,
+                                            ),
+                                        ],
                                       ),
                                     ],
                                   ),
@@ -225,10 +292,10 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                               padding: const EdgeInsets.all(8),
                               alignment: Alignment.bottomCenter,
                               child: Text(
-                                model.title,
-                                style: const TextStyle(
+                                '',
+                                style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 34,
+                                  fontSize: 34.h,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
