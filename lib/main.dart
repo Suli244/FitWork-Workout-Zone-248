@@ -2,13 +2,19 @@ import 'package:apphud/apphud.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:workout_zone_248/screen/pages/nutrition/food_model/kcal_hive_model.dart';
 import 'package:workout_zone_248/screen/splash/splash_screen.dart';
 import 'package:workout_zone_248/utils/urls.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting();
   await Apphud.start(apiKey: DocFFWorkoutZone.apphudApiKey);
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await Hive.initFlutter();
+  Hive.registerAdapter(KCalHiveModelAdapter());
   runApp(const MyApp());
 }
 
