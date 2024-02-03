@@ -22,7 +22,6 @@ class _SleepPageState extends State<SleepPage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,33 +75,37 @@ class _SleepPageState extends State<SleepPage> {
                 height: 59,
                 child: Row(
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          calculateTimeDifference(
-                            DateFormat('HH:mm:ss').format(
-                              modelTimer?.startDate ?? DateTime.now(),
+                    FittedBox(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              calculateTimeDifference(
+                                DateFormat('HH:mm:ss').format(
+                                  modelTimer?.startDate ?? DateTime.now(),
+                                ),
+                                DateFormat('HH:mm:ss').format(
+                                  modelTimer?.endDate ?? DateTime.now(),
+                                ),
+                              ),
+                              style: const TextStyle(
+                                fontSize: 27,
+                                fontWeight: FontWeight.w700,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
-                            DateFormat('HH:mm:ss').format(
-                              modelTimer?.endDate ?? DateTime.now(),
+                          ),
+                          if (modelTimer != null)
+                            Text(
+                              ' ${DateFormat('HH:mm').format(
+                                modelTimer!.startDate,
+                              )}-${DateFormat('HH:mm').format(
+                                modelTimer!.endDate,
+                              )}',
                             ),
-                          ),
-                          style: const TextStyle(
-                            fontSize: 27,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        // const SizedBox(height: 8),
-                        if (modelTimer != null)
-                          Text(
-                            ' ${DateFormat('HH:mm').format(
-                              modelTimer!.startDate,
-                            )}-${DateFormat('HH:mm').format(
-                              modelTimer!.endDate,
-                            )}',
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
                     const Spacer(),
                     InkWell(
@@ -202,7 +205,6 @@ class _SleepPageState extends State<SleepPage> {
                           const FlSpot(10, 1),
                           const FlSpot(10, 5),
                           const FlSpot(11, 1),
-                          // Add the rest of your data points
                         ],
                         isCurved: true,
                         // colors: [Colors.red],
@@ -215,6 +217,7 @@ class _SleepPageState extends State<SleepPage> {
                   ),
                 ),
               ),
+              SizedBox(height: 10.h),
             ],
           ),
         ),
@@ -226,7 +229,10 @@ class _SleepPageState extends State<SleepPage> {
 Widget defaultGetTitle(double value, TitleMeta meta) {
   return SideTitleWidget(
     axisSide: meta.axisSide,
-    child: Text(meta.formattedValue.padLeft(2, '0')),
+    child: FittedBox(
+        child: Text(
+      meta.formattedValue.padLeft(2, '0'),
+    )),
   );
 }
 
