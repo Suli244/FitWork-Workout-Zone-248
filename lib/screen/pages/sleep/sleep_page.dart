@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
@@ -20,133 +21,213 @@ class _SleepPageState extends State<SleepPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Nutrition',
-                  style: TextStyle(
-                    fontSize: 26.h,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Nunito',
-                  ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Nutrition',
+                style: TextStyle(
+                  fontSize: 26.h,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Nunito',
                 ),
-                SizedBox(height: 32.h),
-                DatesWidget(
-                  onSelectDate: (selectedDate) {
-                    // setState(() {
-                    //   nowDate = selectedDate;
-                    // });
-                  },
+              ),
+              SizedBox(height: 32.h),
+              DatesWidget(
+                onSelectDate: (selectedDate) {
+                  // setState(() {
+                  //   nowDate = selectedDate;
+                  // });
+                },
+              ),
+              SizedBox(height: 15.h),
+              const MotivationContainer(
+                titles: [
+                  'Sleep Is First',
+                  'Prioritize Your Rest',
+                  'Recharge Your Body',
+                  'Dream, Achieve, Repeat',
+                  'Mindful Slumber',
+                  'Nighttime Repair',
+                ],
+                descs: [
+                  'sleeping is one of the most necessary things for your body',
+                  'Sleep is the foundation of a healthy lifestyle. Make it a priority for overall well-being.',
+                  'Your body needs time to recharge. Quality sleep is the key to unlocking your full potential.',
+                  'Dream big, but don"t forget to sleep well. Quality sleep fuels your ambitions for a successful day ahead.',
+                  'Give your mind the rest it deserves. Mindful slumber contributes to mental clarity and focus.',
+                  'While you sleep, your body undergoes essential repairs. Support this process with sufficient and quality sleep.',
+                ],
+              ),
+              SizedBox(height: 40.h),
+              const Text(
+                'Today Sleeping Time',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
                 ),
-                SizedBox(height: 15.h),
-                const MotivationContainer(
-                  titles: [
-                    'Sleep Is First',
-                    'Prioritize Your Rest',
-                    'Recharge Your Body',
-                    'Dream, Achieve, Repeat',
-                    'Mindful Slumber',
-                    'Nighttime Repair',
-                  ],
-                  descs: [
-                    'sleeping is one of the most necessary things for your body',
-                    'Sleep is the foundation of a healthy lifestyle. Make it a priority for overall well-being.',
-                    'Your body needs time to recharge. Quality sleep is the key to unlocking your full potential.',
-                    'Dream big, but don"t forget to sleep well. Quality sleep fuels your ambitions for a successful day ahead.',
-                    'Give your mind the rest it deserves. Mindful slumber contributes to mental clarity and focus.',
-                    'While you sleep, your body undergoes essential repairs. Support this process with sufficient and quality sleep.',
-                  ],
-                ),
-                SizedBox(height: 40.h),
-                const Text(
-                  'Today Sleeping Time',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const Divider(color: Color(0xffF1F1F1)),
-                // const SizedBox(height: 1),
-                SizedBox(
-                  height: 59,
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            calculateTimeDifference(
-                              DateFormat('HH:mm:ss').format(
-                                modelTimer?.startDate ?? DateTime.now(),
-                              ),
-                              DateFormat('HH:mm:ss').format(
-                                modelTimer?.endDate ?? DateTime.now(),
-                              ),
+              ),
+              const Divider(color: Color(0xffF1F1F1)),
+              // const SizedBox(height: 1),
+              SizedBox(
+                height: 59,
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          calculateTimeDifference(
+                            DateFormat('HH:mm:ss').format(
+                              modelTimer?.startDate ?? DateTime.now(),
                             ),
-                            style: const TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.w700,
+                            DateFormat('HH:mm:ss').format(
+                              modelTimer?.endDate ?? DateTime.now(),
                             ),
                           ),
-                          // const SizedBox(height: 8),
-                          if (modelTimer != null)
-                            Text(
-                              ' ${DateFormat('HH:mm').format(
-                                modelTimer!.startDate,
-                              )}-${DateFormat('HH:mm').format(
-                                modelTimer!.endDate,
-                              )}',
-                            ),
-                        ],
-                      ),
-                      const Spacer(),
-                      InkWell(
-                        onTap: () async {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SelectTime(),
-                            ),
-                          ).then((value) {
-                            if (value is ModelXMan) {
-                              log('data: value: $value ');
-                              modelTimer = value;
-                              setState(() {});
-                            }
-                          });
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 8, horizontal: 24),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            color: const Color(0xff590085),
-                          ),
-                          child: Text(
-                            'Add',
-                            style: TextStyle(
-                              fontSize: 15.h,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Nunito',
-                              color: Colors.white,
-                            ),
+                          style: const TextStyle(
+                            fontSize: 27,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                      )
+                        // const SizedBox(height: 8),
+                        if (modelTimer != null)
+                          Text(
+                            ' ${DateFormat('HH:mm').format(
+                              modelTimer!.startDate,
+                            )}-${DateFormat('HH:mm').format(
+                              modelTimer!.endDate,
+                            )}',
+                          ),
+                      ],
+                    ),
+                    const Spacer(),
+                    InkWell(
+                      onTap: () async {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SelectTime(),
+                          ),
+                        ).then((value) {
+                          if (value is ModelXMan) {
+                            log('data: value: $value ');
+                            modelTimer = value;
+                            setState(() {});
+                          }
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 24),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40),
+                          color: const Color(0xff590085),
+                        ),
+                        child: Text(
+                          'Add',
+                          style: TextStyle(
+                            fontSize: 15.h,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Nunito',
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
+              const Text('Sleep'),
+              const Divider(color: Color(0xffF1F1F1)),
+              Container(
+                height: 120,
+                width: double.infinity,
+                padding: const EdgeInsets.all(8.0),
+                child: LineChart(
+                  LineChartData(
+                    gridData: const FlGridData(show: false),
+                    titlesData: const FlTitlesData(
+                      topTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                      ),
+                      rightTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                      ),
+                      bottomTitles: AxisTitles(
+                        axisNameSize: 15,
+                        // axisNameWidget: Text(''),
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          getTitlesWidget: defaultGetTitle,
+                        ),
+                      ),
+                      leftTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                      ),
+                    ),
+                    borderData: FlBorderData(show: false),
+                    minX: 0,
+                    maxX: 11,
+                    minY: 0,
+                    maxY: 6,
+                    lineBarsData: [
+                      LineChartBarData(
+                        color: const Color(0xffFB3B02),
+                        spots: [
+                          const FlSpot(0, 3),
+                          const FlSpot(1, 2),
+                          const FlSpot(2, 1),
+                          const FlSpot(2, 5),
+                          const FlSpot(3, 0),
+                          const FlSpot(3, 2),
+                          const FlSpot(4, 3),
+                          const FlSpot(5, 1),
+                          const FlSpot(5, 4),
+                          const FlSpot(6, 1),
+                          const FlSpot(6, 4),
+                          const FlSpot(7, 5),
+                          const FlSpot(8, 2),
+                          const FlSpot(9, 5),
+                          const FlSpot(10, 1),
+                          const FlSpot(10, 5),
+                          const FlSpot(11, 1),
+                          // Add the rest of your data points
+                        ],
+                        isCurved: true,
+                        // colors: [Colors.red],
+                        barWidth: 3,
+                        isStrokeCapRound: true,
+                        dotData: const FlDotData(show: false),
+                        belowBarData: BarAreaData(show: false),
+                      ),
                     ],
                   ),
-                )
-              ],
-            ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
+}
+
+Widget defaultGetTitle(double value, TitleMeta meta) {
+  return SideTitleWidget(
+    axisSide: meta.axisSide,
+    child: Text(meta.formattedValue.padLeft(2, '0')),
+  );
 }
 
 String calculateTimeDifference(String startTime, String endTime) {
