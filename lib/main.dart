@@ -1,43 +1,38 @@
-import 'package:apphud/apphud.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intl/date_symbol_data_local.dart';
-import 'package:workout_zone_248/screen/pages/nutrition/food_model/kcal_hive_model.dart';
-import 'package:workout_zone_248/screen/splash/splash_screen.dart';
-import 'package:workout_zone_248/utils/urls.dart';
+import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await initializeDateFormatting();
-  await Apphud.start(apiKey: DocFFWorkoutZone.apphudApiKey);
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  await Hive.initFlutter();
-  Hive.registerAdapter(KCalHiveModelAdapter());
-  runApp(const MyApp());
+void main() {
+  return runApp(_ChartApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class _ChartApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(390, 844),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (_, child) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Workout Zone',
-        home: child,
-        theme: ThemeData.light().copyWith(
-          splashColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory,
-          highlightColor: Colors.transparent,
-        ),
-      ),
-      child: const SplashScreen(),
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false),
+      home: _MyHomePage(),
     );
   }
+}
+
+class _MyHomePage extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
+  _MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<_MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Center(child: Container(child: SfSparkLineChart())));
+  }
+}
+
+class _SalesData {
+  _SalesData(this.year, this.sales);
+
+  final String year;
+  final double sales;
 }
