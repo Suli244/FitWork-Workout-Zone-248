@@ -153,8 +153,8 @@ class _SleepPageState extends State<SleepPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: LineChart(
                   LineChartData(
-                    gridData: const FlGridData(show: false),
-                    titlesData: const FlTitlesData(
+                    gridData: FlGridData(show: false),
+                    titlesData: FlTitlesData(
                       topTitles: AxisTitles(
                         sideTitles: SideTitles(
                           showTitles: false,
@@ -210,7 +210,7 @@ class _SleepPageState extends State<SleepPage> {
                         // colors: [Colors.red],
                         barWidth: 3,
                         isStrokeCapRound: true,
-                        dotData: const FlDotData(show: false),
+                        dotData: FlDotData(show: false),
                         belowBarData: BarAreaData(show: false),
                       ),
                     ],

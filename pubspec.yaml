@@ -54,7 +54,9 @@ dependencies:
   cached_network_image: ^3.3.1
   cupertino_date_time_picker: ^0.0.4
   syncfusion_flutter_charts: ^24.2.3+1
-  fl_chart: ^0.66.1
+  fl_chart: ^0.62.0
+  native_ios_dialog: ^0.2.1
+  pedometer: ^4.0.0
 
 
 dev_dependencies:
