@@ -2,6 +2,8 @@ import 'package:apphud/apphud.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:workout_zone_248/screen/pages/home/models/home_model.dart';
 import 'package:workout_zone_248/screen/splash/splash_screen.dart';
 import 'package:workout_zone_248/utils/urls.dart';
 
@@ -9,6 +11,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Apphud.start(apiKey: DocFFWorkoutZone.apphudApiKey);
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await Hive.initFlutter();
+  Hive.registerAdapter(HomeModelAdapter());
+  Hive.registerAdapter(TrainingsAdapter());
   runApp(const MyApp());
 }
 
