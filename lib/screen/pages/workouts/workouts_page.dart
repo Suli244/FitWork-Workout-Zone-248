@@ -55,7 +55,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               },
               success: (models, searching) {
                 List<Workouts> filtered = [];
-                if (searching == false) {
+                if (searching == false && models.isNotEmpty) {
                   filtered = List<Workouts>.from(models)..removeAt(0);
                 } else {
                   filtered = models;
@@ -110,7 +110,9 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                         ),
                       ),
                       const SizedBox(height: 24),
-                      if (models.first.isSatypAluu && !isSoonun)
+                      if (models.isNotEmpty &&
+                          models.first.isSatypAluu &&
+                          !isSoonun)
                         Column(
                           children: [
                             Container(
@@ -151,7 +153,9 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                             ? const SizedBox.shrink()
                             : GestureDetector(
                                 onTap: () {
-                                  if (models.first.isSatypAluu && !isSoonun) {
+                                  if (models.isNotEmpty &&
+                                      models.first.isSatypAluu &&
+                                      !isSoonun) {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -159,15 +163,17 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                               const PremiumScreen()),
                                     );
                                   } else {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            TrainingMainDetailPage(
-                                          models.first.trainings,
+                                    if (models.isNotEmpty) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              TrainingMainDetailPage(
+                                            models.first.trainings,
+                                          ),
                                         ),
-                                      ),
-                                    );
+                                      );
+                                    }
                                   }
                                 },
                                 child: Container(
@@ -180,7 +186,9 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
                                       image: NetworkImage(
-                                        models.first.mainImage,
+                                        models.isNotEmpty
+                                            ? models.first.mainImage
+                                            : '',
                                       ),
                                     ),
                                   ),
@@ -196,7 +204,9 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              models.first.title,
+                                              models.isNotEmpty
+                                                  ? models.first.title
+                                                  : '',
                                               style: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 15,
@@ -205,7 +215,11 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                             ),
                                             Flexible(
                                               child: Text(
-                                                models.first.description ?? '',
+                                                models.isNotEmpty
+                                                    ? models.first
+                                                            .description ??
+                                                        ''
+                                                    : '',
                                                 style: const TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 34,
@@ -224,14 +238,15 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            '${models.first.time} min',
+                                            '${models.isNotEmpty ? models.first.time : ''} min',
                                             style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 15,
                                               fontWeight: FontWeight.w500,
                                             ),
                                           ),
-                                          if (models.first.isSatypAluu &&
+                                          if (models.isNotEmpty &&
+                                              models.first.isSatypAluu &&
                                               !isSoonun)
                                             Image.asset(
                                               AppImages.lockIconRoz,

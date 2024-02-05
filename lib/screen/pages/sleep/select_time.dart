@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:workout_zone_248/screen/pages/sleep/model/sleep_model.dart';
 import 'package:workout_zone_248/utils/images/app_images.dart';
 
 class SelectTime extends StatefulWidget {
@@ -15,6 +17,7 @@ class _SelectTimeState extends State<SelectTime> {
   var endDate = DateTime.now();
   bool selectFirst = false;
   bool showError = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,16 +25,20 @@ class _SelectTimeState extends State<SelectTime> {
         centerTitle: false,
         title: const Text('SelectTime'),
         leading: IconButton(
-          onPressed: () {
+          onPressed: () async {
+            final date = DateFormat('d').format(startDate);
             final model = ModelXMan(
               startDate: startDate,
               endDate: endDate,
+              date: int.parse(date),
             );
             if (isDateRangeValid(model)) {
               Navigator.pop(
                 context,
                 model,
               );
+              var box = await Hive.openBox<ModelXMan>('timeX');
+              box.add(model);
             } else {
               showError = true;
               setState(() {});
@@ -146,24 +153,10 @@ class _SelectTimeState extends State<SelectTime> {
   }
 }
 
-class ModelXMan {
-  final DateTime startDate;
-  final DateTime endDate;
-  ModelXMan({
-    required this.startDate,
-    required this.endDate,
-  });
-
-  @override
-  String toString() => 'ModelXMan(startDate: $startDate, endDate: $endDate)';
-}
-
 bool isDateRangeValid(ModelXMan model) {
   if (model.endDate.isBefore(model.startDate)) {
-    // endDate раньше startDate (отрицательный диапазон)
     return false;
   } else {
-    // Диапазон дат корректен
     return true;
   }
 }

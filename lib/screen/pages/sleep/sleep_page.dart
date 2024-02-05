@@ -3,9 +3,11 @@ import 'dart:developer';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/dates_widget.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/motivation_container.dart';
+import 'package:workout_zone_248/screen/pages/sleep/model/sleep_model.dart';
 import 'package:workout_zone_248/screen/pages/sleep/select_time.dart';
 
 class SleepPage extends StatefulWidget {
@@ -17,6 +19,43 @@ class SleepPage extends StatefulWidget {
 
 class _SleepPageState extends State<SleepPage> {
   ModelXMan? modelTimer;
+  final dateTime = DateTime.now();
+  int nowDate = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    final date = DateFormat('d').format(dateTime);
+    getByDay(int.parse(date));
+  }
+
+  getByDay(int date) async {
+    var sleeps = await Hive.openBox<ModelXMan>('timeX');
+    final sleepsModel = sleeps.values.toList();
+
+    log('data: sleepsModel: $sleepsModel ');
+
+    final modelTimerList = sleepsModel.where((e) {
+      final selectedDate = e.date;
+      return selectedDate == date;
+    }).toList();
+
+    log('data: modelTimerList: $modelTimerList ');
+
+    if (modelTimerList.isNotEmpty) {
+      modelTimer = modelTimerList.first;
+    } else {
+      modelTimer = null;
+    }
+    setState(() {});
+  }
+
+  @override
+  void didUpdateWidget(covariant SleepPage oldWidget) {
+    getByDay(nowDate);
+    super.didUpdateWidget(oldWidget);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,9 +76,9 @@ class _SleepPageState extends State<SleepPage> {
               SizedBox(height: 32.h),
               DatesWidget(
                 onSelectDate: (selectedDate) {
-                  // setState(() {
-                  //   nowDate = selectedDate;
-                  // });
+                  getByDay(selectedDate);
+                  setState(() {});
+                  log('data: selectedDate: $selectedDate ');
                 },
               ),
               SizedBox(height: 15.h),

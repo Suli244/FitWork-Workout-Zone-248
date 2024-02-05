@@ -14,6 +14,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   final dio = Dio();
 
   List<Workouts> workoutsSearch = [];
+  List<Workouts> filterSearch = [];
   Future getData() async {
     emit(const WorkoutsState.loading());
     try {
@@ -40,17 +41,17 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   }
 
   searchList(String text) {
-    emit(const WorkoutsState.loading());
     try {
-      List<Workouts> newList = List<Workouts>.from(workoutsSearch);
-      newList.removeWhere(
-        (e) => !e.title.toLowerCase().contains(
-              text.toLowerCase(),
-            ),
-      );
+      if (text.isNotEmpty) {
+        filterSearch = workoutsSearch.where((model) {
+          return model.title.toLowerCase().contains(text.toLowerCase());
+        }).toList();
+      } else {
+        filterSearch = workoutsSearch;
+      }
       emit(
         WorkoutsState.success(
-          models: newList,
+          models: filterSearch,
           search: text.isNotEmpty,
         ),
       );
