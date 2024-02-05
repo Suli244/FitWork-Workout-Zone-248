@@ -73,7 +73,7 @@ class HomeCubit extends Cubit<HomeState> {
           workouts: list);
       data.steps += _stepCount;
       data.km += (_stepCount / 1000).floor();
-      data.save();
+      // data.save();
       await dB.put(_key, data);
       emit(
         HomeState.loaded(
