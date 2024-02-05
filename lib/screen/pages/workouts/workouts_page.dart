@@ -6,8 +6,8 @@ import 'package:workout_zone_248/screen/pages/workouts/child_pages/training_main
 import 'package:workout_zone_248/screen/pages/workouts/child_pages/workout_detail_page.dart';
 import 'package:workout_zone_248/screen/pages/workouts/state/cubit/workouts_cubit.dart';
 import 'package:workout_zone_248/screen/pages/workouts/state/models/workouts_model.dart';
-import 'package:workout_zone_248/screen/premium/premium_screen.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/screen/sadgas/sddga.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
 class WorkoutsPage extends StatefulWidget {
   const WorkoutsPage({super.key});
@@ -86,7 +86,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                             children: [
                               const SizedBox(width: 15),
                               Image.asset(
-                                AppImages.searchIcon,
+                                Dvsdsd.searchIcon,
                                 // color: Colors.red,
                                 scale: 4,
                               ),
@@ -127,7 +127,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                               child: Row(
                                 children: [
                                   Image.asset(
-                                    AppImages.lockIconRoz,
+                                    Dvsdsd.lockIconRoz,
                                     scale: 3,
                                   ),
                                   const SizedBox(width: 16),
@@ -160,7 +160,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const PremiumScreen()),
+                                              const DFsdgsgs()),
                                     );
                                   } else {
                                     if (models.isNotEmpty) {
@@ -249,7 +249,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                               models.first.isSatypAluu &&
                                               !isSoonun)
                                             Image.asset(
-                                              AppImages.lockIconRoz,
+                                              Dvsdsd.lockIconRoz,
                                               scale: 3,
                                             ),
                                         ],

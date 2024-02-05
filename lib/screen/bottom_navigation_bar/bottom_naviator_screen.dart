@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:workout_zone_248/dafsas/asfafsag.dart';
 import 'package:workout_zone_248/screen/pages/home/home_page.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/nutrition_page.dart';
-import 'package:workout_zone_248/screen/pages/settings/settings_page.dart';
+import 'package:workout_zone_248/screen/pages/settings/sfgsefgbfsd.dart';
 import 'package:workout_zone_248/screen/pages/sleep/sleep_page.dart';
 import 'package:workout_zone_248/screen/pages/workouts/state/cubit/workouts_cubit.dart';
 import 'package:workout_zone_248/screen/pages/workouts/workouts_page.dart';
-import 'package:workout_zone_248/style/app_colors.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
 class BottomNavigatorScreen extends StatefulWidget {
   const BottomNavigatorScreen({Key? key}) : super(key: key);
@@ -41,12 +41,12 @@ class _BottomNavigatorState extends State<BottomNavigatorScreen> {
             BottomNavigationBarItem(
               label: '',
               icon: Image.asset(
-                AppImages.homeIcon,
+                Dvsdsd.homeIcon,
                 width: 27,
                 color: AppColorsWorkoutZone.color706B6A,
               ),
               activeIcon: Image.asset(
-                AppImages.homeIcon,
+                Dvsdsd.homeIcon,
                 color: AppColorsWorkoutZone.color590085,
                 width: 27,
               ),
@@ -54,12 +54,12 @@ class _BottomNavigatorState extends State<BottomNavigatorScreen> {
             BottomNavigationBarItem(
               label: '',
               icon: Image.asset(
-                AppImages.workoutsIcon,
+                Dvsdsd.workoutsIcon,
                 width: 22.50,
                 color: AppColorsWorkoutZone.color706B6A,
               ),
               activeIcon: Image.asset(
-                AppImages.workoutsIcon,
+                Dvsdsd.workoutsIcon,
                 color: AppColorsWorkoutZone.color590085,
                 width: 22.50,
               ),
@@ -67,12 +67,12 @@ class _BottomNavigatorState extends State<BottomNavigatorScreen> {
             BottomNavigationBarItem(
               label: '',
               icon: Image.asset(
-                AppImages.nutritionIcon,
+                Dvsdsd.nutritionIcon,
                 width: 28,
                 color: AppColorsWorkoutZone.color706B6A,
               ),
               activeIcon: Image.asset(
-                AppImages.nutritionIcon,
+                Dvsdsd.nutritionIcon,
                 color: AppColorsWorkoutZone.color590085,
                 width: 28,
               ),
@@ -80,12 +80,12 @@ class _BottomNavigatorState extends State<BottomNavigatorScreen> {
             BottomNavigationBarItem(
               label: '',
               icon: Image.asset(
-                AppImages.sleepIcon,
+                Dvsdsd.sleepIcon,
                 width: 23,
                 color: AppColorsWorkoutZone.color706B6A,
               ),
               activeIcon: Image.asset(
-                AppImages.sleepIcon,
+                Dvsdsd.sleepIcon,
                 color: AppColorsWorkoutZone.color590085,
                 width: 23,
               ),
@@ -93,12 +93,12 @@ class _BottomNavigatorState extends State<BottomNavigatorScreen> {
             BottomNavigationBarItem(
               label: '',
               icon: Image.asset(
-                AppImages.settingsIcon,
+                Dvsdsd.settingsIcon,
                 width: 27,
                 color: AppColorsWorkoutZone.color706B6A,
               ),
               activeIcon: Image.asset(
-                AppImages.settingsIcon,
+                Dvsdsd.settingsIcon,
                 color: AppColorsWorkoutZone.color590085,
                 width: 27,
               ),
@@ -115,5 +115,5 @@ List<Widget> pages = [
   const WorkoutsPage(),
   const NutritionPage(),
   const SleepPage(),
-  const SettingsPage(),
+  const EFkjadnf(),
 ];

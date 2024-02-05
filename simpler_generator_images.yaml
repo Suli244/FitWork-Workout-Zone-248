@@ -7,7 +7,7 @@ outputPath: lib/utils/images
 
 groups:
   - path: assets/images
-    class_name: AppImages
+    class_name: Dvsdsd
     types: [.png, .jpg, .jpeg, .webp, .webm, .bmp, .svg, .gif, .riv, .json]
     warnings: true
     
@@ -25,7 +25,7 @@ groups:
   #     - assets/images
   #     - assets/images/new_images
   #     - assets/images/only_icons
-  #   class_name: AppImages
+  #   class_name: Dvsdsd
   #   types: [.png, .jpg, .jpeg, .webp, .webm, .bmp, .svg, .gif, .riv, .json]
   #   warnings: true
 

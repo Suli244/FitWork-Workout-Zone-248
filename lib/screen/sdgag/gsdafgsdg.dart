@@ -4,16 +4,16 @@ import 'package:in_app_review/in_app_review.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/onboarding/onboarding_screen.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class SGedfsdgs extends StatefulWidget {
+  const SGedfsdgs({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SGedfsdgs> createState() => _SGedfsdgsState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SGedfsdgsState extends State<SGedfsdgs> {
   @override
   void initState() {
     toGoOnBoarWorkoutZone();
@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Center(
             child: Image.asset(
-              AppImages.splashLogo,
+              Dvsdsd.splashLogo,
               width: 140.w,
               height: 212.h,
             ),

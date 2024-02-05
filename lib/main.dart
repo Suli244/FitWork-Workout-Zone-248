@@ -5,12 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:workout_zone_248/screen/pages/home/models/home_model.dart';
 import 'package:workout_zone_248/screen/pages/sleep/model/sleep_model.dart';
-import 'package:workout_zone_248/screen/splash/splash_screen.dart';
-import 'package:workout_zone_248/utils/urls.dart';
+import 'package:workout_zone_248/screen/sdgag/gsdafgsdg.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Apphud.start(apiKey: DocFFWorkoutZone.apphudApiKey);
+  await Apphud.start(apiKey: 'DocFFWorkoutZone.apphudApiKey');
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Hive.initFlutter();
   Hive.registerAdapter(HomeModelAdapter());
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
           highlightColor: Colors.transparent,
         ),
       ),
-      child: const SplashScreen(),
+      child: const SGedfsdgs(),
     );
   }
 }

@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/food_detail_screen.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/food_model/food_model.dart';
-import 'package:workout_zone_248/screen/premium/premium_screen.dart';
+import 'package:workout_zone_248/screen/sadgas/sddga.dart';
 
 class FoodItemWidget extends StatefulWidget {
   const FoodItemWidget({
@@ -49,7 +49,7 @@ class _FoodItemWidgetState extends State<FoodItemWidget> {
           Navigator.push(
             context,
             CupertinoPageRoute(
-              builder: (context) => const PremiumScreen(),
+              builder: (context) => const DFsdgsgs(),
             ),
           );
         }

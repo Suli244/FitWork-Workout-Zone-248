@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/food_model/food_model.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
 class FoodDetailScreen extends StatelessWidget {
   const FoodDetailScreen({super.key, required this.model});
@@ -32,7 +32,7 @@ class FoodDetailScreen extends StatelessWidget {
                 child: RotatedBox(
                   quarterTurns: 1,
                   child: Image.asset(
-                    AppImages.arrowDownIcon,
+                    Dvsdsd.arrowDownIcon,
                     width: 12.h,
                     color: Colors.white,
                   ),

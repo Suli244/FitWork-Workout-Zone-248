@@ -3,15 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/button_widget.dart';
-import 'package:workout_zone_248/screen/premium/widget/premium_item_widget.dart';
-import 'package:workout_zone_248/screen/premium/widget/restore_widgets.dart';
-import 'package:workout_zone_248/screen/premium/widget/web_view_insightful_news.dart';
-import 'package:workout_zone_248/style/app_colors.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
-import 'package:workout_zone_248/utils/urls.dart';
+import 'package:workout_zone_248/screen/sadgas/widget/premium_item_widget.dart';
+import 'package:workout_zone_248/screen/sadgas/widget/restore_widgets.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
+import 'package:workout_zone_248/dafsas/asfafsag.dart';
 
-class PremiumScreen extends StatelessWidget {
-  const PremiumScreen({super.key});
+class DFsdgsgs extends StatelessWidget {
+  const DFsdgsgs({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +18,7 @@ class PremiumScreen extends StatelessWidget {
           Column(
             children: [
               Image.asset(
-                AppImages.premium,
+                Dvsdsd.premium,
                 width: 390.w,
                 height: 546.h,
                 fit: BoxFit.cover,
@@ -75,31 +73,7 @@ class PremiumScreen extends StatelessWidget {
                     height: 72.h,
                   ),
                   SizedBox(height: 20.h),
-                  RestoreButtons(
-                    onPressTermOfService: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const WebFFWorkoutZone(
-                            title: 'Term of use',
-                            url: DocFFWorkoutZone.tUse,
-                          ),
-                        ),
-                      );
-                    },
-                    onPressRestorePurchases: () {},
-                    onPressPrivacyPolicy: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const WebFFWorkoutZone(
-                            title: 'Privacy Policy',
-                            url: DocFFWorkoutZone.pP,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                  const RestoreButtons(),
                   SizedBox(height: 45.h),
                 ],
               ),

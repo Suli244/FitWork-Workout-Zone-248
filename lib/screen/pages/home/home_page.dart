@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:workout_zone_248/screen/pages/home/home_chart.dart';
 import 'package:workout_zone_248/screen/pages/home/home_cubit/home_cubit.dart';
 import 'package:workout_zone_248/screen/pages/home/home_detail_page.dart';
 

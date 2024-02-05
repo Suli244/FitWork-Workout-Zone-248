@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:workout_zone_248/style/app_colors.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
+import 'package:workout_zone_248/dafsas/asfafsag.dart';
 
 class PremiumItemWidget extends StatelessWidget {
   const PremiumItemWidget({
@@ -28,7 +28,7 @@ class PremiumItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              AppImages.starIcon,
+              Dvsdsd.starIcon,
               width: 24,
             ),
             SizedBox(width: 10.w),

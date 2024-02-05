@@ -4,9 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/button_widget.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/onboarding_item_widget.dart';
-import 'package:workout_zone_248/screen/premium/premium_screen.dart';
-import 'package:workout_zone_248/style/app_colors.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/screen/sadgas/sddga.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
+import 'package:workout_zone_248/dafsas/asfafsag.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -34,13 +34,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
               children: const [
                 OnBoardingItemWidget(
-                  imageOnBoar: AppImages.onboardingOne,
+                  imageOnBoar: Dvsdsd.onboardingOne,
                   titleOnBoar: 'Start Your Fitness Journey',
                   titleTwoOnBoar:
                       'Discover personalized workout plans and nutrition\nguidance tailored just for you.',
                 ),
                 OnBoardingItemWidget(
-                  imageOnBoar: AppImages.onboardingTwo,
+                  imageOnBoar: Dvsdsd.onboardingTwo,
                   titleOnBoar: 'Monitor Your Achievements',
                   titleTwoOnBoar:
                       'Easily track your workouts, nutrition, and health\nstats to see your improvement over time.',
@@ -58,7 +58,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PremiumScreen(),
+                      builder: (context) => const DFsdgsgs(),
                     ),
                   );
                   final prefs = await SharedPreferences.getInstance();

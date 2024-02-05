@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:workout_zone_248/style/app_colors.dart';
+import 'package:workout_zone_248/dafsas/asfafsag.dart';
 
 class OnBoardingItemWidget extends StatelessWidget {
   const OnBoardingItemWidget({

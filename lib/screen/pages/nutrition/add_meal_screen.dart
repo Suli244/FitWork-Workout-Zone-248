@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/food_model/kcal_hive_model.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/show_date_picker_dialog.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/show_select_meal_type_dialog.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
 class AddMealScreen extends StatefulWidget {
   const AddMealScreen({
@@ -77,7 +77,7 @@ class _AddMealScreenState extends State<AddMealScreen> {
             child: RotatedBox(
               quarterTurns: 1,
               child: Image.asset(
-                AppImages.arrowDownIcon,
+                Dvsdsd.arrowDownIcon,
                 width: 12.h,
                 color: const Color(0xff706B6A),
               ),
@@ -200,7 +200,7 @@ class _AddMealScreenState extends State<AddMealScreen> {
                       ),
                     ),
                     Image.asset(
-                      AppImages.calendarIcon,
+                      Dvsdsd.calendarIcon,
                       height: 24.h,
                     ),
                   ],
@@ -246,7 +246,7 @@ class _AddMealScreenState extends State<AddMealScreen> {
                       ),
                     ),
                     Image.asset(
-                      AppImages.arrowDownIcon,
+                      Dvsdsd.arrowDownIcon,
                       height: 24.h,
                     ),
                   ],

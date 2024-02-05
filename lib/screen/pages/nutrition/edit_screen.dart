@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
 class EditScreen extends StatefulWidget {
   const EditScreen({super.key});
@@ -58,7 +58,7 @@ class _EditScreenState extends State<EditScreen> {
             child: RotatedBox(
               quarterTurns: 1,
               child: Image.asset(
-                AppImages.arrowDownIcon,
+                Dvsdsd.arrowDownIcon,
                 width: 12.h,
                 color: const Color(0xff706B6A),
               ),

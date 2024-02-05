@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:workout_zone_248/utils/images/app_images.dart';
+import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
 List<List<int>> generateWeeksInMonth() {
   DateTime now = DateTime.now();
@@ -63,7 +63,7 @@ class _DatesWidgetState extends State<DatesWidget> {
           child: RotatedBox(
             quarterTurns: 1,
             child: Image.asset(
-              AppImages.arrowDownIcon,
+              Dvsdsd.arrowDownIcon,
               height: 24.h,
               color: const Color(0xff706B6A),
             ),
@@ -124,7 +124,7 @@ class _DatesWidgetState extends State<DatesWidget> {
             }
           },
           child: Image.asset(
-            AppImages.arrowRightIcon,
+            Dvsdsd.arrowRightIcon,
             height: 24.h,
             color: const Color(0xff706B6A),
           ),

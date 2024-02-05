@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 import 'package:native_ios_dialog/native_ios_dialog.dart';
 import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/pages/home/models/home_model.dart';
-import 'package:workout_zone_248/screen/pages/home/models/home_model.dart';
 import 'package:workout_zone_248/screen/pages/home/timer_cubit/timer_cubit.dart';
 import 'package:workout_zone_248/screen/pages/home/timer_text.dart';
 

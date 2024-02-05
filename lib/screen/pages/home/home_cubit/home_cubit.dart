@@ -8,10 +8,9 @@ import 'package:pedometer/pedometer.dart';
 import 'package:workout_zone_248/screen/pages/home/models/home_model.dart'
     as hm;
 import 'package:workout_zone_248/screen/pages/workouts/state/models/workouts_model.dart';
-import 'package:workout_zone_248/utils/urls.dart';
 
-part 'home_state.dart';
 part 'home_cubit.freezed.dart';
+part 'home_state.dart';
 
 const _key = 'home';
 
@@ -20,7 +19,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   final dio = Dio();
   int _stepCount = 0;
-
+  final fburl =
+      'https://fitwork--workout-zone-248-default-rtdb.firebaseio.com/worouts.json?auth=AIzaSyAYw5jsA7kGKbUIPlelRSzbZxq31MaXti8';
   Future getData() async {
     emit(const HomeState.loading());
     try {
@@ -49,7 +49,7 @@ class HomeCubit extends Cubit<HomeState> {
         }
       }
       _initPedometer();
-      final result = await dio.get(fbUrl('worouts'));
+      final result = await dio.get(fburl);
       final listModel = result.data
           .map<Workouts>(
             (e) => Workouts.fromJson(
