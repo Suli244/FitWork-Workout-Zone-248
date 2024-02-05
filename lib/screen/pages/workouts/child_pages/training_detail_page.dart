@@ -58,12 +58,14 @@ class TrainingDetailScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                Text(
-                  trainModel.title,
-                  style: const TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
+                Expanded(
+                  child: Text(
+                    trainModel.title,
+                    style: const TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
