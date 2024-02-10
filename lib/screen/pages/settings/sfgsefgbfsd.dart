@@ -55,7 +55,7 @@ class _EFkjadnfState extends State<EFkjadnf> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (cotext) => const DFsdgsgs(),
+                      builder: (cotext) => const DFsdgsgs(isPop: true),
                     ),
                   );
                 },

@@ -49,7 +49,7 @@ class _FoodItemWidgetState extends State<FoodItemWidget> {
           Navigator.push(
             context,
             CupertinoPageRoute(
-              builder: (context) => const DFsdgsgs(),
+              builder: (context) => const DFsdgsgs(isPop: true),
             ),
           );
         }

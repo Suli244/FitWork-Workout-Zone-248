@@ -11,7 +11,8 @@ import 'package:workout_zone_248/screen/sadgas/widget/restore_widgets.dart';
 import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
 class DFsdgsgs extends StatefulWidget {
-  const DFsdgsgs({super.key});
+  const DFsdgsgs({super.key, this.isPop = false});
+  final bool isPop;
 
   @override
   State<DFsdgsgs> createState() => _DFsdgsgsState();
@@ -34,6 +35,34 @@ class _DFsdgsgsState extends State<DFsdgsgs> {
                 alignment: Alignment.topCenter,
               ),
             ],
+          ),
+          Positioned(
+            top: 70,
+            right: 30,
+            child: CircleAvatar(
+              backgroundColor: Colors.white.withOpacity(0.5),
+              radius: 15,
+              child: InkWell(
+                onTap: () {
+                  if (widget.isPop) {
+                    Navigator.pop(context);
+                  } else {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BottomNavigatorScreen(),
+                      ),
+                      (pred) => false,
+                    );
+                  }
+                },
+                child: const Icon(
+                  Icons.close,
+                  size: 20,
+                  color: Colors.black,
+                ),
+              ),
+            ),
           ),
           Positioned(
             left: 0,

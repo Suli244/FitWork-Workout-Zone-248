@@ -159,8 +159,9 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const DFsdgsgs()),
+                                        builder: (context) =>
+                                            const DFsdgsgs(isPop: true),
+                                      ),
                                     );
                                   } else {
                                     if (models.isNotEmpty) {

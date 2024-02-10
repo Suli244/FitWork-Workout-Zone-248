@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workout_zone_248/dafsas/asfafsag.dart';
 import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/button_widget.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/onboarding_item_widget.dart';
 import 'package:workout_zone_248/screen/sadgas/sddga.dart';
 import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
-import 'package:workout_zone_248/dafsas/asfafsag.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
