@@ -9,7 +9,7 @@ import 'package:workout_zone_248/screen/sdgag/gsdafgsdg.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Apphud.start(apiKey: 'DocFFWorkoutZone.apphudApiKey');
+  await Apphud.start(apiKey: 'app_eqfE4E5VmLskvtxjnshdyZL7ZJZ8Zu');
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Hive.initFlutter();
   Hive.registerAdapter(HomeModelAdapter());
