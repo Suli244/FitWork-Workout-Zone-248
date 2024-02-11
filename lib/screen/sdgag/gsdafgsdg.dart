@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:in_app_review/in_app_review.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/onboarding/onboarding_screen.dart';
@@ -51,15 +50,6 @@ class _SGedfsdgsState extends State<SGedfsdgs> {
           builder: (context) => const OnboardingScreen(),
         ),
       );
-      await Future.delayed(const Duration(seconds: 8));
-      try {
-        final InAppReview inAppReview = InAppReview.instance;
-        if (await inAppReview.isAvailable()) {
-          inAppReview.requestReview();
-        }
-      } catch (e) {
-        throw Exception(e);
-      }
     } else {
       Navigator.pushReplacement(
         context,

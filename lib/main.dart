@@ -6,6 +6,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:workout_zone_248/screen/pages/home/models/home_model.dart';
 import 'package:workout_zone_248/screen/pages/sleep/model/sleep_model.dart';
 import 'package:workout_zone_248/screen/sdgag/gsdafgsdg.dart';
+import 'package:workout_zone_248/sdgsdgsdg/get_premium/sdsdfdsg/prem_hive_model.dart';
+import 'package:workout_zone_248/sdgsdgsdg/sdfsdf.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +17,8 @@ void main() async {
   Hive.registerAdapter(HomeModelAdapter());
   Hive.registerAdapter(ModelXManAdapter());
   Hive.registerAdapter(TrainingsAdapter());
-  runApp(const MyApp());
+  Hive.registerAdapter(JHgjkJHdAdapter());
+  sddggsg();
 }
 
 class MyApp extends StatelessWidget {
