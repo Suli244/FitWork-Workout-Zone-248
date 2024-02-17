@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/edit_screen.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/get_meal_cubit/get_meal_cubit.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/add_meal_button.dart';
@@ -9,6 +10,7 @@ import 'package:workout_zone_248/screen/pages/nutrition/widgets/dates_widget.dar
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/motivation_container.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/percont_widget.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/recomened_widget.dart';
+import 'package:workout_zone_248/screen/pages/nutrition/widgets/show_nutriotion_info_dialog.dart';
 
 class NutritionPage extends StatefulWidget {
   const NutritionPage({super.key});
@@ -19,6 +21,20 @@ class NutritionPage extends StatefulWidget {
 
 class _NutritionPageState extends State<NutritionPage> {
   int nowDate = DateTime.now().day;
+  @override
+  void initState() {
+    showInfo();
+    super.initState();
+  }
+
+  showInfo() async {
+    final prefs = await SharedPreferences.getInstance();
+    final result = prefs.getBool('show') ?? false;
+    if (!result) {
+      showNutritionInfoDialog(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

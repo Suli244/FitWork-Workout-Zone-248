@@ -43,6 +43,7 @@ class _SGedfsdgsState extends State<SGedfsdgs> {
     await Future.delayed(const Duration(milliseconds: 1450));
     final prefs = await SharedPreferences.getInstance();
     final isFirst = prefs.getBool('isOpened') ?? false;
+
     if (!isFirst) {
       Navigator.pushReplacement(
         context,

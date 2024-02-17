@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_zone_248/dafsas/asfafsag.dart';
-import 'package:workout_zone_248/screen/bottom_navigation_bar/bottom_naviator_screen.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/button_widget.dart';
 import 'package:workout_zone_248/screen/onboarding/widget/onboarding_item_widget.dart';
 import 'package:workout_zone_248/screen/sadgas/sddga.dart';
@@ -55,20 +54,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               color: AppColorsWorkoutZone.color590085,
               onPress: () async {
                 if (currantPage == 1) {
+                  final prefs = await SharedPreferences.getInstance();
+                  prefs.setBool('isOpened', true);
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const DFsdgsgs(),
                     ),
-                  );
-                  final prefs = await SharedPreferences.getInstance();
-                  prefs.setBool('isOpened', true);
-                  await Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const BottomNavigatorScreen(),
-                    ),
-                    (pred) => false,
                   );
                 } else {
                   controller.nextPage(

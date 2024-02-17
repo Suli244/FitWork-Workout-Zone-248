@@ -2,11 +2,24 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/food_model/food_model.dart';
+import 'package:workout_zone_248/screen/pages/nutrition/widgets/show_nutriotion_info_dialog.dart';
 import 'package:workout_zone_248/sdgsdg/sdd/afsfasfas.dart';
 
-class FoodDetailScreen extends StatelessWidget {
+class FoodDetailScreen extends StatefulWidget {
   const FoodDetailScreen({super.key, required this.model});
   final FoodList model;
+
+  @override
+  State<FoodDetailScreen> createState() => _FoodDetailScreenState();
+}
+
+class _FoodDetailScreenState extends State<FoodDetailScreen> {
+  @override
+  void initState() {
+    showNutritionInfoDialog(context);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +31,7 @@ class FoodDetailScreen extends StatelessWidget {
             backgroundColor: Colors.white,
             automaticallyImplyLeading: true,
             expandedHeight: 415.h,
-            title: Text(model.title),
+            title: Text(widget.model.title),
             titleTextStyle: TextStyle(
               fontSize: 26.h,
               fontWeight: FontWeight.w700,
@@ -55,7 +68,7 @@ class FoodDetailScreen extends StatelessWidget {
             ),
             flexibleSpace: FlexibleSpaceBar(
               background: CachedNetworkImage(
-                imageUrl: model.image,
+                imageUrl: widget.model.image,
                 width: double.maxFinite,
                 height: double.maxFinite,
                 fit: BoxFit.cover,
@@ -69,7 +82,7 @@ class FoodDetailScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    model.title,
+                    widget.model.title,
                     style: const TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.w700,
@@ -77,7 +90,7 @@ class FoodDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   Text(
-                    'Ingredients: ${model.ingredients}',
+                    'Ingredients: ${widget.model.ingredients}',
                     style: TextStyle(
                       fontSize: 15.h,
                       fontWeight: FontWeight.w500,
@@ -87,7 +100,7 @@ class FoodDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   Text(
-                    ' • Protein: ${model.protein}g',
+                    ' • Protein: ${widget.model.protein}g',
                     style: TextStyle(
                       fontSize: 15.h,
                       fontWeight: FontWeight.w500,
@@ -97,7 +110,7 @@ class FoodDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   Text(
-                    ' • Carbohydrates: ${model.carbohydrates}g',
+                    ' • Carbohydrates: ${widget.model.carbohydrates}g',
                     style: TextStyle(
                       fontSize: 15.h,
                       fontWeight: FontWeight.w500,
@@ -107,7 +120,7 @@ class FoodDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   Text(
-                    ' • Fats: ${model.fats}g',
+                    ' • Fats: ${widget.model.fats}g',
                     style: TextStyle(
                       fontSize: 15.h,
                       fontWeight: FontWeight.w500,
@@ -117,7 +130,7 @@ class FoodDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 24.h),
                   Text(
-                    model.description,
+                    widget.model.description,
                     style: TextStyle(
                       fontSize: 15.h,
                       fontWeight: FontWeight.w500,
