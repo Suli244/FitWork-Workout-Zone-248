@@ -11,6 +11,7 @@ import 'package:workout_zone_248/screen/pages/nutrition/widgets/motivation_conta
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/percont_widget.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/recomened_widget.dart';
 import 'package:workout_zone_248/screen/pages/nutrition/widgets/show_nutriotion_info_dialog.dart';
+import 'package:workout_zone_248/screen/sadgas/widget/web_view_insightful_news.dart';
 
 class NutritionPage extends StatefulWidget {
   const NutritionPage({super.key});
@@ -144,6 +145,41 @@ class _NutritionPageState extends State<NutritionPage> {
                     fontWeight: FontWeight.w500,
                     fontFamily: 'Nunito',
                     color: const Color(0xff706B6A),
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Text(
+                  'Recommendations provided from:',
+                  style: TextStyle(
+                    fontSize: 15.h,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Nunito',
+                    color: const Color(0xff706B6A),
+                  ),
+                ),
+                SizedBox(height: 4.h),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const WebFFWorkoutZone(
+                          title: 'Recommendations',
+                          url: 'https://www.eatingwell.com/recipes/',
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'https://www.eatingwell.com/recipes/',
+                    style: TextStyle(
+                      fontSize: 15.h,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Nunito',
+                      color: const Color(0xff590085),
+                      decoration: TextDecoration.underline,
+                      decorationColor: const Color(0xff590085),
+                    ),
                   ),
                 ),
                 const Divider(color: Color(0xffF1F1F1)),
